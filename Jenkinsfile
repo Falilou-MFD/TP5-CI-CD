@@ -7,7 +7,7 @@ pipeline {
         DOCKER_USERNAME = "faliloumfd" // username docker
         IMAGE_VERSION = "1.${BUILD_NUMBER}"  // version dynamique de l’image
         DOCKER_IMAGE = "${DOCKER_USERNAME}/tp-app:${IMAGE_VERSION}" // nom de l’image docker
-        DOCKER_CONTAINER = "jenkins1"  // nom du conteneur
+        DOCKER_CONTAINER = "ci-cd-html-css-app"  // nom du conteneur
     }
     // Les étapes du pipeline
     stages {
@@ -27,7 +27,8 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 script {
-                    bat "docker build -t $DOCKER_IMAGE ."
+                    bat "docker build -t $DOCKER_IMAGE ./TP5-CI-CD"
+                    echo "Image Docker créée : $DOCKER_IMAGE"
                 }
             }
         }
