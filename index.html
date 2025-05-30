@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Admin E-commerce - Votre Boutique</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> </head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-cogs"></i> Administration E-commerce</h1>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a></li>
+                    <li><a href="#products"><i class="fas fa-box"></i> Produits</a></li>
+                    <li><a href="#orders"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
+                    <li><a href="#customers"><i class="fas fa-users"></i> Clients</a></li>
+                    <li><a href="#reports"><i class="fas fa-chart-line"></i> Rapports</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="dashboard" class="dashboard-section">
+            <h2><i class="fas fa-tachometer-alt"></i> Tableau de bord</h2>
+            <div class="dashboard-grid">
+                <div class="card sales-summary">
+                    <h3><i class="fas fa-money-bill-wave"></i> Ventes du jour</h3>
+                    <p class="metric">50 000 XOF</p>
+                    <p class="trend"><i class="fas fa-arrow-up"></i> +10% par rapport à hier</p>
+                </div>
+                <div class="card total-sales">
+                    <h3><i class="fas fa-chart-line"></i> Chiffre d'affaires total</h3>
+                    <p class="metric">1 250 000 XOF</p>
+                    <p class="trend"><i class="fas fa-calendar-alt"></i> Ce mois-ci</p>
+                </div>
+                <div class="card pending-orders">
+                    <h3><i class="fas fa-hourglass-half"></i> Commandes en attente</h3>
+                    <p class="metric">12</p>
+                    <p class="trend">À traiter</p>
+                </div>
+                <div class="card top-product">
+                    <h3><i class="fas fa-star"></i> Meilleur produit</h3>
+                    <p class="metric">Chaussures de Sport "Confort Max" (175 ventes)</p>
+                    <p class="trend">En forte demande</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-bar"></i> Ventes mensuelles (XOF)</h3>
+                <canvas id="salesChart"></canvas> </div>
+        </section>
+
+        <section id="products" class="data-section">
+            <h2><i class="fas fa-box"></i> Gestion des produits</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom du produit</th>
+                        <th>Prix (XOF)</th>
+                        <th>Stock</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>T-shirt "Élégance Urbaine"</td>
+                        <td>7 500 XOF</td>
+                        <td>150</td>
+                        <td><span class="status-available">En stock</span></td>
+                        <td>
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Pantalon Cargo "Aventure"</td>
+                        <td>12 000 XOF</td>
+                        <td>75</td>
+                        <td><span class="status-low-stock">Stock faible</span></td>
+                        <td>
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Chaussures de Sport "Confort Max"</td>
+                        <td>25 000 XOF</td>
+                        <td>0</td>
+                        <td><span class="status-out-of-stock">Rupture</span></td>
+                        <td>
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn-add"><i class="fas fa-plus"></i> Ajouter un produit</button>
+        </section>
+
+        <section id="orders" class="data-section">
+            <h2><i class="fas fa-shopping-cart"></i> Gestion des commandes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Commande</th>
+                        <th>Client</th>
+                        <th>Date</th>
+                        <th>Total (XOF)</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#20230501-001</td>
+                        <td>Fatima Diallo</td>
+                        <td>2023-05-25</td>
+                        <td>15 000 XOF</td>
+                        <td><span class="status-pending">En attente</span></td>
+                        <td>
+                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                            <button class="btn-process"><i class="fas fa-check"></i> Traiter</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#20230501-002</td>
+                        <td>Moussa Cissé</td>
+                        <td>2023-05-24</td>
+                        <td>22 500 XOF</td>
+                        <td><span class="status-completed">Terminée</span></td>
+                        <td>
+                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="customers" class="data-section">
+            <h2><i class="fas fa-users"></i> Gestion des clients</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Client</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Total des commandes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>C001</td>
+                        <td>Fatima Diallo</td>
+                        <td>fatima.d@email.com</td>
+                        <td>3</td>
+                        <td>
+                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                            <button class="btn-message"><i class="fas fa-envelope"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C002</td>
+                        <td>Moussa Cissé</td>
+                        <td>moussa.c@email.com</td>
+                        <td>5</td>
+                        <td>
+                            <button class="btn-view"><i class="fas fa-eye"></i></button>
+                            <button class="btn-message"><i class="fas fa-envelope"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="reports" class="data-section">
+            <h2><i class="fas fa-chart-line"></i> Rapports et Statistiques</h2>
+            <p>Ici, vous pourrez intégrer des rapports plus détaillés : performances des produits, analyse des clients, rapports financiers, etc.</p>
+            <div class="report-options">
+                <button class="btn-report"><i class="fas fa-file-excel"></i> Exporter les ventes (CSV)</button>
+                <button class="btn-report"><i class="fas fa-print"></i> Imprimer le rapport mensuel</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Votre Boutique E-commerce. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <script src="script.js"></script> </body>
+</html>
