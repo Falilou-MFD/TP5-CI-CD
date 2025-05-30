@@ -27,7 +27,7 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 script {
-                    bat "docker build -t $DOCKER_IMAGE ./TP5-CI-CD"
+                    bat "docker build -t $DOCKER_IMAGE ."
                     echo "Image Docker créée : $DOCKER_IMAGE"
                 }
             }
